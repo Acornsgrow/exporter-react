@@ -1,6 +1,8 @@
 /**
  * Convert group name, token name and possible prefix into camelCased string, joining everything together
  */
+
+/* global Pulsar */
 Pulsar.registerFunction(
   "readableVariableName",
   function (token, tokenGroup, prefix) {
@@ -19,7 +21,7 @@ Pulsar.registerFunction(
     let sentence = segments.join(" ");
 
     // Return camelcased string from all segments
-     sentence = sentence
+    sentence = sentence
       .toLowerCase()
       .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 
