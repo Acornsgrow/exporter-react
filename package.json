@@ -1,0 +1,27 @@
+{
+  "name": "acorns-react-exporter-compiler",
+  "version": "1.0.0",
+  "description": "Acorns Supernova React Exporter JS Compiler",
+  "main": "js/register.js",
+  "scripts": {
+    "watch": "npx webpack --mode=production --watch",
+    "build": "npx webpack --config webpack.config.js --mode='production'",
+    "lint": "eslint \"./src/**/*.{js,ts}\"",
+    "prettier": "prettier \"./src/**/*.{js,ts}\" --write"
+  },
+  "author": "Acorns Grow Inc.",
+  "sideEffects": false,
+  "devDependencies": {
+    "@supernovaio/supernova-sdk": "1.8.83",
+    "@typescript-eslint/eslint-plugin": "6.2.1",
+    "@typescript-eslint/parser": "6.2.1",
+    "eslint": "8.46.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "prettier": "3.0.0",
+    "terser-webpack-plugin": "5.3.9",
+    "ts-loader": "9.4.4",
+    "typescript": "5.1.6",
+    "webpack": "5.88.2",
+    "webpack-cli": "5.1.4"
+  }
+}
