@@ -13,14 +13,14 @@
   "sideEffects": false,
   "devDependencies": {
     "@supernovaio/supernova-sdk": "1.8.83",
-    "@typescript-eslint/eslint-plugin": "^6.2.1",
-    "@typescript-eslint/parser": "^6.2.1",
+    "@typescript-eslint/eslint-plugin": "6.2.1",
+    "@typescript-eslint/parser": "6.2.1",
     "eslint": "8.46.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "5.0.0",
     "prettier": "3.0.0",
     "terser-webpack-plugin": "5.3.9",
     "ts-loader": "9.4.4",
-    "typescript": "^5.1.6",
+    "typescript": "5.1.6",
     "webpack": "5.88.2",
     "webpack-cli": "5.1.4"
   }
