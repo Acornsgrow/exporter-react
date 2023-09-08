@@ -5,8 +5,8 @@
       "write_to": "colors.ts"
     },
     {
-      "invoke": "buttonColors.pr",
-      "write_to": "buttonColors.ts"
+      "invoke": "button.pr",
+      "write_to": "button.ts"
     },
     {
       "invoke": "borders.pr",
