@@ -4,38 +4,38 @@
 
 /* global Pulsar */
 Pulsar.registerFunction(
-  "readableVariableName",
+  'readableVariableName',
   function (token, tokenGroup, prefix) {
     // Create array with all path segments and token name at the end
-    const segments = [...tokenGroup.path];
+    const segments = [...tokenGroup.path]
     if (!tokenGroup.isRoot) {
       segments.push(tokenGroup.name)
     }
-    segments.push(token.name);
+    segments.push(token.name)
 
     if (prefix && prefix.length > 0) {
-      segments.unshift(prefix);
+      segments.unshift(prefix)
     }
 
     // Create "sentence" separated by spaces so we can camelcase it all
-    let sentence = segments.join(" ");
+    let sentence = segments.join(' ')
 
     // Return camelcased string from all segments
     sentence = sentence
       .toLowerCase()
-      .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+      .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())
 
     // only allow letters, digits, underscore
     sentence = sentence.replace(/[^a-zA-Z0-9_]/g, '_')
 
-    // prepend underscore if it starts with digit 
+    // prepend underscore if it starts with digit
     if (/^\d/.test(sentence)) {
-      sentence = '_' + sentence;
+      sentence = '_' + sentence
     }
-    
-    return sentence;
-  }
-);
+
+    return sentence
+  },
+)
 
 /**
  * Behavior configuration of the exporter
@@ -43,63 +43,82 @@ Pulsar.registerFunction(
  */
 const BEHAVIOR = {
   color: {
-    fileName: "colors", // this should be somehow synced with output.json contents
-    varName: "Colors",
-    themeProperty: "colors",
-    tokenPrefix: "",
+    fileName: 'colors', // this should be somehow synced with output.json contents
+    varName: 'Colors',
+    themeProperty: 'colors',
+    tokenPrefix: '',
   },
   border: {
-    fileName: "borders", // this should be somehow synced with output.json contents
-    varName: "Borders",
-    themeProperty: "borders",
-    tokenPrefix: "",
+    fileName: 'borders', // this should be somehow synced with output.json contents
+    varName: 'Borders',
+    themeProperty: 'borders',
+    tokenPrefix: '',
   },
   gradient: {
-    fileName: "gradients", // this should be somehow synced with output.json contents
-    varName: "Gradients",
-    themeProperty: "gradients",
-    tokenPrefix: "",
+    fileName: 'gradients', // this should be somehow synced with output.json contents
+    varName: 'Gradients',
+    themeProperty: 'gradients',
+    tokenPrefix: '',
   },
   measure: {
-    fileName: "measures", // this should be somehow synced with output.json contents
-    varName: "Measures",
-    themeProperty: "measures",
-    tokenPrefix: "",
+    fileName: 'measures', // this should be somehow synced with output.json contents
+    varName: 'Measures',
+    themeProperty: 'measures',
+    tokenPrefix: '',
   },
 
   shadow: {
-    fileName: "shadows", // this should be somehow synced with output.json contents
-    varName: "Shadows",
-    themeProperty: "shadows",
-    tokenPrefix: "",
+    fileName: 'shadows', // this should be somehow synced with output.json contents
+    varName: 'Shadows',
+    themeProperty: 'shadows',
+    tokenPrefix: '',
   },
   typography: {
-    fileName: "typography", // this should be somehow synced with output.json contents
-    varName: "Typographies",
-    themeProperty: "typographies",
-    tokenPrefix: "",
+    fileName: 'typography', // this should be somehow synced with output.json contents
+    varName: 'Typographies',
+    themeProperty: 'typographies',
+    tokenPrefix: '',
   },
   radius: {
-    fileName: "radii", // this should be somehow synced with output.json contents
-    varName: "Raddii",
-    themeProperty: "radii",
-    tokenPrefix: "",
+    fileName: 'radii', // this should be somehow synced with output.json contents
+    varName: 'Raddii',
+    themeProperty: 'radii',
+    tokenPrefix: '',
   },
   unknown: {
-    fileName: "uknown",
-    varName: "Unknowns",
-    themeProperty: "unknowns",
-    tokenPrefix: "",
-  }
-};
+    fileName: 'uknown',
+    varName: 'Unknowns',
+    themeProperty: 'unknowns',
+    tokenPrefix: '',
+  },
+}
 
-Pulsar.registerFunction("getBehavior", function (tokenType) {
-  return BEHAVIOR[tokenType.toLowerCase()] || BEHAVIOR['unknown'];
-});
+Pulsar.registerFunction('getBehavior', function (tokenType) {
+  return BEHAVIOR[tokenType.toLowerCase()] || BEHAVIOR['unknown']
+})
 
-Pulsar.registerFunction("buildReferenceMeta", function(tokenType, tokenValue){
+Pulsar.registerFunction('buildReferenceMeta', function (tokenType, tokenValue) {
   return {
     tokenType,
-    referencedToken: tokenValue.referencedToken
+    referencedToken: tokenValue.referencedToken,
+  }
+})
+
+Pulsar.registerFunction('getComponentTokens', function (tokens, componentType) {
+  if (componentType) {
+    const componentTypes =
+      tokens.at(0)?.properties?.find((prop) => prop?.codeName === 'component')
+        ?.options ?? []
+
+    const currentComponentId =
+      componentTypes.find((prop) => prop?.name === componentType)?.id ?? ''
+
+    return tokens.filter((token) => {
+      return token?.propertyValues?.component === currentComponentId
+    })
+  } else {
+    return tokens.filter((token) => {
+      return token?.propertyValues?.component === undefined
+    })
   }
 })
