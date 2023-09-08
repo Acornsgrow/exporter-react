@@ -1,19 +1,22 @@
 {*
 
-Generate all color tokens as named variables.
+Generate all button component tokens as named variables.
 Tokens are named by their group path and then name, 
 and their value rendered using `rendered-color` blueprint
 
+For now we will only account for color tokens but will expand
+to include additional token types within this file
+
 *}
 {[ global CURRENT_TYPE = "Color" /]}
-{[ global COMPONENT_TYPE = "" /]}
+{[ global COMPONENT_TYPE = "Button" /]}
 
 {[ let brand = ds.currentBrand() /]}
 {[ const behavior = getBehavior(CURRENT_TYPE) /]}
 {[ const tokens = ds.tokensByType(CURRENT_TYPE, brand.id) /]}
 {[ const filteredTokens = getComponentTokens(tokens, COMPONENT_TYPE) /]}
 
-{[ for token in filteredTokens ]}
+{[ for token in tokens ]}
 {[ inject "rendered-token-var" context token /]}    
 {[/]}
 
