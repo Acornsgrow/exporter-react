@@ -104,6 +104,23 @@ Pulsar.registerFunction('buildReferenceMeta', function (tokenType, tokenValue) {
   }
 })
 
+Pulsar.registerFunction('getReferenceTokens', function (tokens) {
+  const referencedTokens = []
+  tokens.forEach((token) => {
+    if (token?.value?.referencedToken) {
+      if (
+        referencedTokens.findIndex(
+          (referencedToken) =>
+            token.value.referencedToken.id === referencedToken.id,
+        ) === -1
+      ) {
+        referencedTokens.push(token.value.referencedToken)
+      }
+    }
+  })
+  return referencedTokens
+})
+
 Pulsar.registerFunction('getComponentTokens', function (tokens, componentType) {
   if (componentType) {
     const componentTypes =
@@ -113,12 +130,12 @@ Pulsar.registerFunction('getComponentTokens', function (tokens, componentType) {
     const currentComponentId =
       componentTypes.find((prop) => prop?.name === componentType)?.id ?? ''
 
-    return tokens.filter((token) => {
-      return token?.propertyValues?.component === currentComponentId
-    })
+    return tokens.filter(
+      (token) => token?.propertyValues?.component === currentComponentId,
+    )
   } else {
-    return tokens.filter((token) => {
-      return token?.propertyValues?.component === undefined
-    })
+    return tokens.filter(
+      (token) => token?.propertyValues?.component === undefined,
+    )
   }
 })
