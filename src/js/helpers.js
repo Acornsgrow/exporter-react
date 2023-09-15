@@ -44,50 +44,50 @@ Pulsar.registerFunction(
 const BEHAVIOR = {
   color: {
     fileName: 'colors', // this should be somehow synced with output.json contents
-    varName: 'Colors',
+    varName: 'colors',
     themeProperty: 'colors',
     tokenPrefix: '',
   },
   border: {
     fileName: 'borders', // this should be somehow synced with output.json contents
-    varName: 'Borders',
+    varName: 'borders',
     themeProperty: 'borders',
     tokenPrefix: '',
   },
   gradient: {
     fileName: 'gradients', // this should be somehow synced with output.json contents
-    varName: 'Gradients',
+    varName: 'gradients',
     themeProperty: 'gradients',
     tokenPrefix: '',
   },
   measure: {
     fileName: 'measures', // this should be somehow synced with output.json contents
-    varName: 'Measures',
+    varName: 'measures',
     themeProperty: 'measures',
     tokenPrefix: '',
   },
 
   shadow: {
     fileName: 'shadows', // this should be somehow synced with output.json contents
-    varName: 'Shadows',
+    varName: 'shadows',
     themeProperty: 'shadows',
     tokenPrefix: '',
   },
   typography: {
     fileName: 'typography', // this should be somehow synced with output.json contents
-    varName: 'Typographies',
+    varName: 'typographies',
     themeProperty: 'typographies',
     tokenPrefix: '',
   },
   radius: {
     fileName: 'radii', // this should be somehow synced with output.json contents
-    varName: 'Raddii',
+    varName: 'radii',
     themeProperty: 'radii',
     tokenPrefix: '',
   },
   unknown: {
     fileName: 'uknown',
-    varName: 'Unknowns',
+    varName: 'unknowns',
     themeProperty: 'unknowns',
     tokenPrefix: '',
   },
