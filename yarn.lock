@@ -136,10 +136,10 @@
     picocolors "^1.0.0"
     tslib "^2.6.0"
 
-"@supernovaio/supernova-sdk@1.8.83":
-  version "1.8.83"
-  resolved "https://registry.yarnpkg.com/@supernovaio/supernova-sdk/-/supernova-sdk-1.8.83.tgz#7174fa82f84359480e3027031cebaffbd9025c9a"
-  integrity sha512-PiiiM4FVPGYzNSbacpFxKxFcmCitKxdRnZEIA9HaVLRzyAXVMRegNnQ4t2r2ymPiYdNLON+QD9bNpNgpWpXnEg==
+"@supernovaio/supernova-sdk@1.9.3":
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@supernovaio/supernova-sdk/-/supernova-sdk-1.9.3.tgz#192134106547b109a76869c13b1101cdd33f3328"
+  integrity sha512-wQ7Oijtb5fRz2S3tpUqGEfff4/ScThPCfTS0/cZLOYuj99OhbkJb3igWXZD9I3Km79boCqv7hHMASYTCYywCUQ==
   dependencies:
     abab "^2.0.5"
     async-mutex "^0.3.1"
