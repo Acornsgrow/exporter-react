@@ -13,7 +13,7 @@
   "sideEffects": false,
   "devDependencies": {
     "@supernovaio/supernova-sdk": "1.8.83",
-    "@typescript-eslint/eslint-plugin": "6.2.1",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.2.1",
     "eslint": "8.46.0",
     "eslint-plugin-prettier": "5.0.0",
